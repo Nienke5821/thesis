@@ -45,6 +45,7 @@ def combine_have_to(can_be_given, give_now):
 
         return can_be_given, give_now, give_user
 
+    # urgency 1
     for i in range(3):  # max 3 items of urgency 1, none of urgency 2 or 3
         if give_now:
             give_user.append(give_now.pop(0))
@@ -70,7 +71,7 @@ def add_not_urg_2(check_list, give_user):
     for notification in check_list:
         if getattr(notification, "urgency") == 2:
             not2_2 = notification
-            break
+            break  # add this notification
         elif getattr(notification, "urgency") == 1:
             not2_1 = notification
     if not2_2 != None:

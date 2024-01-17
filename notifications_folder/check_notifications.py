@@ -15,7 +15,7 @@ def check_notifications_list(notifications, can_be_given, give_now):
                             and notifications that must be given now
     """
     to_be_removed = []
-    while datetime.datetime.now().second >= 30:
+    while datetime.datetime.now().second >= 30: # wait
         time.sleep(5)
     for notification in notifications:
         updated = check_notification_type(
@@ -42,7 +42,7 @@ def check_can_be_given(can_be_given, give_now):
         (list, list): the updated lists of notifications that can be given and notifications that must be given now
     """
     to_be_removed = []
-    while datetime.datetime.now().second >= 30:
+    while datetime.datetime.now().second >= 30: # wait
         time.sleep(5)
     now = datetime.datetime.now()
     for notification in can_be_given:
@@ -131,11 +131,11 @@ def check_time_frame(notification, can_be_given, give_now, min_time, to_be_remov
 
         time_diff = max_time - now
         time_diff_minutes = time_diff.total_seconds() / 60
-        if time_diff_minutes <= 5:
+        if time_diff_minutes <= 5: # last 5 minutes of time frame
             give_now.append(notification)
             to_be_removed.append(notification)
 
-        else:
+        else: # within time frame, not within last 5 minutes
             can_be_given.append(notification)
             to_be_removed.append(notification)
     return can_be_given, give_now, to_be_removed

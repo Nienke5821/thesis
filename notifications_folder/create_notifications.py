@@ -46,7 +46,7 @@ def create_notification(min_hours, min_minutes, max_hours, max_minutes, urgency,
     Returns:
         NotificationClass: a notification that has the arguments of the function as attributes
     """
-    if min_hours == None:
+    if min_hours == None:  # no time frame
         min_time = None
         max_time = None
     else:
