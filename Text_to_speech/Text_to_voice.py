@@ -5,7 +5,7 @@ import openai
 import time
 from mutagen.mp3 import MP3
 
-openai.api_key = "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"
+openai.api_key = ""  # TODO: insert your own API key
 model_engine = "gpt-3.5-turbo"
 
 
